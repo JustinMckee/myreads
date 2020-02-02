@@ -14,7 +14,16 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     books: []
-  }
+  };
+
+	componentDidMount() {
+    BooksAPI.getAll()
+			.then((books) => {
+	      this.setState(()=>({
+					books
+				}))
+	    })
+  };
 
   render() {
     return (
@@ -24,7 +33,9 @@ class BooksApp extends React.Component {
 					exact
 					path = '/'
 					render = {() =>
-						<Shelves/>
+						<Shelves
+							books={this.state.books}
+						/>
 					}
 				/>
 
