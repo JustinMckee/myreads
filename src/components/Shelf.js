@@ -1,7 +1,7 @@
 import React from 'react'
 import Book from './Book.js'
 
-const Shelf = ({title,books}) => {
+const Shelf = ({title,books,updateShelf}) => {
 
   return(
     <div className="bookshelf">
@@ -11,15 +11,12 @@ const Shelf = ({title,books}) => {
 					{books.map(book => (
 						<li key={book.id}>
 							<Book
-								thumbnail={
-									book.imageLinks
-										? book.imageLinks.thumbnail
-										: `http://via.placeholder.com/128x193?text=No%20Cover`
-								}
+								thumbnail={book.imageLinks.thumbnail}
 								title={book.title}
 								authors={book.authors}
 								shelf={book.shelf}
 								book={book}
+								updateShelf={updateShelf}
 							/>
 						</li>
 					))}

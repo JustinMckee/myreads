@@ -1,14 +1,16 @@
 import React from 'react'
 
-const Book = ({book,authors,title,thumbnail,shelf}) => {
+const Book = ({book,authors,title,thumbnail,shelf,updateShelf}) => {
 
   return(
     <div className="book">
-			{console.log(book)}
       <div className="book-top">
         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:`url(${thumbnail})` }}></div>
         <div className="book-shelf-changer">
-          <select>
+          <select
+						onChange={e => updateShelf(book,e.target.value)}
+						value={shelf || 'none'}
+					>
             <option value="move" disabled>Move to...</option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>

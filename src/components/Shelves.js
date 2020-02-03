@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import Shelf from './Shelf.js'
 
-const Shelves = ({books}) => {
+const Shelves = ({books,updateShelf}) => {
 
 	const filterBooksOnShelf = shelfName => {
 		let booksOnShelf = books.filter(book => {
@@ -20,14 +20,17 @@ const Shelves = ({books}) => {
         <Shelf
 					title="Currently Reading"
 					books={filterBooksOnShelf('currentlyReading')}
+					updateShelf={updateShelf}
 				/>
         <Shelf
 					title="Want to Read"
 					books={filterBooksOnShelf('wantToRead')}
+					updateShelf={updateShelf}
 				/>
         <Shelf
 					title="Read"
 					books={filterBooksOnShelf('read')}
+					updateShelf={updateShelf}
 				/>
       </div>
 
