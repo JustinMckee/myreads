@@ -11,7 +11,7 @@ const Shelf = ({title,books}) => {
 					{books.map(book => (
 						<li key={book.id}>
 							<Book
-								thumb={
+								thumbnail={
 									book.imageLinks
 										? book.imageLinks.thumbnail
 										: `http://via.placeholder.com/128x193?text=No%20Cover`

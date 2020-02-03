@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Book = ({thumb,title,authors,shelf,book}) => {
+const Book = ({book,authors,title,thumbnail,shelf}) => {
 
   return(
     <div className="book">
+			{console.log(book)}
       <div className="book-top">
-        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:`url(${thumb})` }}></div>
+        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:`url(${thumbnail})` }}></div>
         <div className="book-shelf-changer">
           <select>
             <option value="move" disabled>Move to...</option>
